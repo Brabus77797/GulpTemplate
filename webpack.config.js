@@ -1,112 +1,112 @@
-const  path  =  require ( "путь" ) ;
-const  { CleanWebpackPlugin }  =  require ( 'clean-webpack-plugin' ) ;
-const  CopyPlugin  =  require ( "копировать-webpack-плагин" ) ;
-const  HtmlWebpackPlugin  =  require ( "html-webpack-plugin" ) ;
-const  TerserPlugin  =  require ( "terser-webpack-plugin" ) ;
-const  ImageminPlugin  =  require ( 'imagemin-webpack-plugin' ) . по умолчанию ;
-const  MiniCssExtractPlugin  =  require ( "mini-css-extract-plugin" ) ;
+const path = require("path");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const  config  =  {
-    запись : [ "./src/js/index.js" ,  "./src/scss/style.scss" ] ,
-    output : {
-        путь : __dirname  +  '/ public' ,
-        имя файла : "js / main.min.js"
-    } ,
-    devtool : "исходная карта" ,
-    режим : "производство" ,
-    оптимизация : {
-        минимизатор : [
-            новый  TerserPlugin ( {
-                sourceMap : true ,
-                extractComments : правда
-            } )
+const config = {
+    entry: ["./src/js/index.js", "./src/scss/style.scss"],
+    output: {
+        path: __dirname + '/public',
+        filename: "js/main.min.js"
+    },
+    devtool: "source-map",
+    mode: "production",
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                sourceMap: true,
+                extractComments: true
+            })
         ]
-    } ,
-    модуль : {
-        правила : [
+    },
+    module: {
+        rules: [
             {
-                тест : / \. ( Дерзость | СКС ) $ / ,
-                включить : путь . решить ( __dirname ,  "./src/scss" ) ,
-                использование : [
+                test: /\.(sass|scss)$/,
+                include: path.resolve(__dirname, "./src/scss"),
+                use: [
                     {
-                        загрузчик : MiniCssExtractPlugin . погрузчик ,
-                        options : {
-                            publicPath : '../'
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
                         }
-                    } ,
+                    },
                     {
-                        загрузчик : "css-loader" ,
-                        options : {
-                            sourceMap : true ,
-                            url : true
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                            url: true
                         }
-                    } ,
+                    },
                     {
-                        загрузчик : "sass-loader" ,
-                        options : {
-                            sourceMap : true
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true
                         }
                     }
                 ]
-            } ,
+            },
             {
-                тест : / \. html $ / ,
-                использовать : {
-                    загрузчик : "html-loader" ,
-                    options : {
-                        attrs : [ 'img: src' , 'link: href' , 'source: srcset' ]
+                test: /\.html$/,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        attrs: ['img:src','link:href','source:srcset']
                     }
                 }
-            } ,
+            },
             {
-                тест : / \. ( svg | png | jpg | eot ) $ / ,
-                использовать : {
-                    загрузчик : "файл-загрузчик" ,
-                    options : {
-                        имя : "[имя]. [доб]" ,
-                        outputPath : "./images"
+                test: /\.(svg|png|jpg|eot)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[ext]",
+                        outputPath: "./images"
                     }
-                } ,
-            } ,
+                },
+            },
         ]
-    } ,
-    плагины : [
-        новый  MiniCssExtractPlugin ( {
-            имя файла : "css / style.css"
-        } ) ,
-        // новый CopyPlugin ({
-        // паттерны: [
-        // {
-        // из: "./src/images",
-        // в: "./images"
-        //},
-        // {
-        // от: "./src/js/*.json",
-        // в: './js/[name provided.[ext]'
-        //}
-        //]
-        //}),
-        новый  HtmlWebpackPlugin ( {
-            имя файла : './index.html' ,
-            шаблон : "./src/html/index.html"
-        } ) ,
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "css/style.css"
+        }),
+        // new CopyPlugin({
+        //     patterns: [
+        //         {
+        //             from: "./src/images",
+        //             to: "./images"
+        //         },
+        //         {
+        //             from: "./src/js/*.json",
+        //             to: './js/[name].[ext]'
+        //         }
+        //     ]
+        // }),
+        new HtmlWebpackPlugin({
+            filename: './index.html',
+            template: "./src/html/index.html"
+        }),
 
-        новый  ImageminPlugin ( {
-            тест : / \. ( jpe? g | png | gif | svg ) $ / i ,
-            pngquant : {
-                качество : '80'
-            } ,
-            jpegtran : {
-                качество : '80' ,
-                прогрессивный : правда
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            pngquant: {
+                quality: '80'
+            },
+            jpegtran: {
+                quality: '80',
+                progressive: true
             }
-        } )
+        })
     ]
-} ;
+};
 
-модуль . export  =  ( env ,  argv )  =>  {
-    if  ( argv . mode  ===  "production" )  {
-        config . плагины . push ( новый  CleanWebpackPlugin ( ) ) ;
+module.exports = (env, argv) => {
+    if (argv.mode === "production") {
+        config.plugins.push(new CleanWebpackPlugin());
     }
-    вернуть  конфиг ;
-} ;
+    return config;
+};
