@@ -1,0 +1,187 @@
+
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin:  0 auto;
+}
+
+.slider {
+    background: url(../images/dest/mountaine.jpg) 50%/cover no-repeat;
+    min-height: 100vh;
+    color: #ffffff;
+    // .slider__title
+
+    &__title {
+        font-family: Raleway;
+        font-size: 36px;
+        font-weight: 500;
+    }
+
+    // .slider__subtitle
+
+    &__subtitle {
+        font-family: Raleway;
+        font-size: 52px;
+        font-weight: 800;
+        padding-bottom: 15px;
+    }
+
+    // .slider__text
+
+    &__text {
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin: 0 0 50px 0;
+        max-width: 562px;
+        text-align: center;
+    }
+
+    // .slider__btn-wrapper
+
+    &__btn-wrapper a{
+        font-family: Raleway;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.64;
+        color: #ffffff;
+        box-shadow: inset 0px -3px 0 0 #736357;
+        background-color: #998675;
+        padding: 21px 39px 21px 37px;
+        border-radius: 3px;
+        text-transform: uppercase;
+
+        &:hover {
+            padding: 25px 50px;
+            background-color: #18b5a4;  
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-delay: 0s;
+            transition-timing-function: ease-in-out;
+        }
+    }
+
+    // .slider__pagination
+
+    &__pagination {
+    }
+
+    // .slider__prev
+
+    &__prev {
+        color: #d3c1ad;
+        transition-property: all;
+        transition-duration: 0.1s;
+        transition-delay: 0s;
+        transition-timing-function: ease-in-out;
+        &:hover {
+            color: #18b5a4;
+        }
+    }
+
+    // .slider__next
+
+    &__next {
+        color: #d3c1ad;
+        transition-property: all;
+        transition-duration: 0.1s;
+        transition-delay: 0s;
+        transition-timing-function: ease-in-out;
+        &:hover {
+            color: #18b5a4;
+        }
+    }
+}
+.swiper-container {
+}
+.main-slider {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.container {
+}
+
+.slider-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 380px 0 379px 0;
+}
+.swiper-pagination {
+
+    &-bullet {
+        opacity: 0.5;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+    }
+     
+    &-bullet-active {
+        border: solid 1px #d3c1ad;
+        background-color: transparent;
+    }
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 37px;
+}
+
+.swiper-button-prev {
+}
+.swiper-button-next {
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+.header__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+
+		// .logo__link
+
+		&__link {
+		}
+
+		// .logo__icon
+
+		&__icon {
+		}
+}
+.navigation {
+
+		// .navigation__item
+
+		&__item {
+            padding: 0 15px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: normal;
+        }
+}
+.search {
+
+		// .search__link
+
+		&__link + &__link{
+            padding: 0 0 0 24px;
+		}
+
+		// .search__icon
+
+		&__icon {
+		}
+}
