@@ -18,4 +18,6 @@ $(document).ready(function () {
 		},
 
 	  });
+
+	  $( ".projects__tabs" ).tabs();
 });
