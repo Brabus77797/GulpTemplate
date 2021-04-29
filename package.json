@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "gulp-scss": "^1.4.0",
+    "jquery-ui": "^1.12.1",
     "swiper": "^6.5.7"
   }
 }

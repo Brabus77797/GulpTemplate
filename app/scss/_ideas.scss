@@ -1,19 +1,66 @@
 .ideas {
-  padding: 75px 0 0;
-  background-color: $gray_bg;
+    padding: 75px 0 0;
+    background-color: $gray_bg;
 
-  &__container {
-    @extend .container;
-    padding: 0;
-  }
-
-  &__footer {
-    padding: 45px 0 47px;
-    background: rgb(33,27,25);
-    background: linear-gradient(90deg, rgba(33,27,25,1) 0%, rgba(56,40,32,1) 50%, rgba(78,52,39,1) 100%);
-
-    .container {
-      padding: 0 30px;
+    &__container{
+        @extend .container;
+        padding: 0;
+        display: flex;
+        justify-content: center;
     }
-  }
+    &__footer {
+        padding: 45px 0 47px;
+        background: rgb(33,27,25);
+        background: linear-gradient(90deg, rgba(33,27,25,1) 0%, rgba(56,40,32,1) 50%, rgba(78,52,39,1) 100%);
+
+        .container {
+            padding: 0 30px;
+        }
+    }
+}
+
+.ideas {
+
+    // .ideas__row
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // .ideas__item
+
+    &__item {
+    }
+
+    // .ideas__title
+
+    &__title {
+        height: 27px;
+        font-family: Raleway;
+        font-size: 28px;
+        color: $white;
+        margin: 0 0 8px;
+
+        span{
+            color: $dark_line;
+        }
+    }
+
+    // .ideas__subtitle
+
+    &__subtitle {
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 300;
+        color: #615855;
+    }
+}
+.slider {
+
+    // .slider__btn-wrapper
+
+    &__btn-wrapper {
+    }
 }
