@@ -12,7 +12,7 @@
     // .slider__title
 
     &__title {
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 36px;
         font-weight: 500;
     }
@@ -20,7 +20,7 @@
     // .slider__subtitle
 
     &__subtitle {
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 52px;
         font-weight: 800;
         padding-bottom: 15px;
@@ -29,7 +29,6 @@
     // .slider__text
 
     &__text {
-        font-family: Montserrat;
         font-size: 16px;
         font-weight: 300;
         line-height: 1.5;
@@ -41,11 +40,12 @@
     // .slider__btn-wrapper
 
     &__btn-wrapper a{
-        font-family: Raleway;
+        font-family: Raleway, sans-serif;
         font-size: 14px;
         font-weight: 800;
         line-height: 1.64;
         color: #ffffff;
+        text-transform: uppercase;
         box-shadow: inset 0px -3px 0 0 #736357;
         background-color: #998675;
         padding: 21px 39px 21px 37px;
@@ -173,6 +173,7 @@
         }
 }
 .search {
+    display: flex;
 
 		// .search__link
 
